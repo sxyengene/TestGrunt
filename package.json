@@ -1,0 +1,27 @@
+{
+  "name": "testGrunt",
+  "version": "0.0.1",
+  "description": "testGrunt",
+  "author": "sxy <sxyengene@163.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alibaba-inc.com:tb/picpro.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-depconcat": "~0.2.0",
+    "grunt-contrib-concat": "~0.1.1",
+    "grunt-depcombo": "~0.1.0",
+    "grunt-contrib-less": "~0.6.4",
+    "grunt-contrib-clean": "~0.5.0"
+  },
+  "dependencies": {},
+  "combo": {
+    "zepto": "1.0.4",
+    "lib.lazyload": "1.1.0",
+    "lib.slider": "0.1.0"
+  }
+}

@@ -1,0 +1,1 @@
+var a=123,cao="asd";alert(1);

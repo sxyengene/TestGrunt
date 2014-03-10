@@ -1,0 +1,9 @@
+.asd {
+  color: #999;
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+.asd .asd {
+  width: 100px;
+}
