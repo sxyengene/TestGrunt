@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,maximum-scale=1,user-scalable=no, minimal-ui" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="Sunday 26 October 2008 01:00 GMT" />
+    <meta http-equiv="cache-control" content="no-cache">
+
+    <meta content="yes" name="apple-mobile-web-app-capable" /> 
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+    <meta content="telephone=no" name="format-detection" /> 
+	<script src="src/zepto.js"></script>
+	<script src="src/event.js"></script>
+	<script src="src/fx.js"></script>
+	
+	<style>
+	body{
+		position: relative;
+	}
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	ul{
+		list-style: none;
+		overflow: hidden;
+		width: 100%;
+	}
+	li{
+		height: 300px;
+		border:1px solid #fff;
+		background-color: gray;
+	}
+	header{
+		text-align: center;
+		position:fixed;
+		top:0px;
+		/*overflow:scroll;*/
+		width: 100%;
+		background-color: #fff;
+		height: 30px;
+	}
+	input{
+		width: 100%;
+		border:0;
+		height: 30px;
+		margin-top: 30px;
+	}
+	.dialog{
+		width: 100%;
+		background-color: red;
+		position: absolute;
+		left:0;
+		top: 0;
+		display: none;
+	}
+	</style>
+	
+</head>
+<body>
+	<header>
+		<p>我是测试header</p>
+	</header>
+	<input type="text">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<div class="dialog">
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+	</div>
+	<script>
+	$(document).ready(function(){
+		var W_height = $(window).width();
+		var W_width = $(window).height();
+		$('.dialog').css({
+			'height':$(window).height()
+		});
+
+		$('li').click(function(){
+			$('.dialog').css({
+				top:$(window).scrollTop()+W_height,
+				display:'block'
+			}).animate({top:$(window).scrollTop()},500,'ease-out');
+
+			// ForbiddenScroll();
+		});
+
+
+		$('.dialog').click(function(){
+			$('.dialog').animate({top:$(window).scrollTop()+$(window).height()},500,'ease-out',function(){
+				$(this).css('display','none');
+			});
+			// release();
+		});
+
+		function ForbiddenScroll(){
+			$(document.body).on('touchstart',preventDefault);
+
+			$(document.body).on('touchend',preventDefault);
+
+			$(document.body).on('touchmove',preventDefault);
+		}
+
+		function preventDefault(e){
+			e.preventDefault();
+		}
+
+		function release(){
+			$(document.body).off(
+				{
+					'touchstart':preventDefault,
+					'touchend':preventDefault,
+					'touchmove':preventDefault
+				}
+			);
+		}
+
+	});
+	</script>
+</body>
+</html>
